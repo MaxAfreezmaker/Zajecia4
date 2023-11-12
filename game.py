@@ -117,9 +117,15 @@ def draw_button():
 def draw_button_pause():
     pygame.draw.rect(screen, red, (button_x_pause, button_y_pause, button_width_pause, button_height_pause))
     font = pygame.font.Font(None, 36)
-    text = font.render("Pause", True, black)
-    text_rect = text.get_rect(center=(button_x_pause + button_width_pause // 2, button_y_pause + button_height_pause // 2))
-    screen.blit(text, text_rect)
+    if pause:
+        text = font.render("Resume", True, black)
+        text_rect = text.get_rect(
+            center=(button_x_pause + button_width_pause // 2, button_y_pause + button_height_pause // 2))
+        screen.blit(text, text_rect)
+    else:
+        text = font.render("Pause", True, black)
+        text_rect = text.get_rect(center=(button_x_pause + button_width_pause // 2, button_y_pause + button_height_pause // 2))
+        screen.blit(text, text_rect)
 
 def draw_button_save():
     pygame.draw.rect(screen, blue, (button_x_save, button_y_save, button_width_save, button_height_save))
