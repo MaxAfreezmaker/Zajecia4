@@ -226,7 +226,7 @@ while running:
                     1] <= button_y_load + button_height_load:
                 load_game_state()
                 print("Game state loaded!")
-
+                # Generating new generation
         if event.type == GENERATION_EVENT and not pause:
             next_generation()
             last_generation_time = pygame.time.get_ticks()
