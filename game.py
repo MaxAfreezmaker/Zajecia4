@@ -124,7 +124,8 @@ def draw_button_pause():
         screen.blit(text, text_rect)
     else:
         text = font.render("Pause", True, black)
-        text_rect = text.get_rect(center=(button_x_pause + button_width_pause // 2, button_y_pause + button_height_pause // 2))
+        text_rect = text.get_rect(
+            center=(button_x_pause + button_width_pause // 2, button_y_pause + button_height_pause // 2))
         screen.blit(text, text_rect)
 
 def draw_button_save():
@@ -200,6 +201,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+            # Pause button
+
         if event.type == pygame.MOUSEBUTTONDOWN:
             if button_x_pause <= event.pos[0] <= button_x_pause + button_width_pause and button_y_pause <= event.pos[
                 1] <= button_y_pause + button_height_pause:
@@ -207,14 +210,17 @@ while running:
                 last_generation_time = pygame.time.get_ticks()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            # Adding new generation manually
+
+                # Adding new generation manually
             if button_x <= event.pos[0] <= button_x + button_width and button_y <= event.pos[
                 1] <= button_y + button_height:
                 next_generation()
+
                 # Saving Game
             elif button_x_save <= event.pos[0] <= button_x_save + button_width_save and button_y_save <= event.pos[
                 1] <= button_y_save + button_height_save:
                 save_game_state()
+
                 # Loading saved game
             elif button_x_load <= event.pos[0] <= button_x_load + button_width_load and button_y_load <= event.pos[
                     1] <= button_y_load + button_height_load:
